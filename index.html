@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>バスケットボール</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	  <link rel="stylesheet" href="style.css">
+
+	<style type="text/css">
+		@font-face{
+			font-family: gang;
+			src:url(12489.ttf);
+		}
+
+		.gang {
+			font-family: gang;
+			font-size: 200%;
+		}
+
+		.btnPlay {
+			position: absolute;
+			width: 200px;
+			height: 80px;
+			border-radius: 40px;
+			top: 45%;
+			left: 40%;
+			border: 2.5px solid rgb(124, 42, 136);
+			background: none;
+		}
+
+		.dva {
+			text-align: center;
+			background: -webkit-linear-gradient(45deg,rgb(255, 255, 255) -50%,rgb(158, 104, 166) 100%);
+			
+			color: transparent;
+			-webkit-background-clip: text;
+			-webkit-animation: animate-logo;
+			-webkit-animation-delay: 0;
+			-webkit-animation-duration: 10s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-fill-mode: forwards;
+			transition: font-size 500ms ease-in-out;
+			font-weight: bold;
+			font-family: arial;	 
+		}
+		
+		@media only screen and (min-width: 40.063em) {
+		 .logo {
+		 margin-top: 30vh;
+		 font-size: 80px;
+		 }
+		}
+		@media only screen and (min-width: 64.063em) {
+		 .logo {
+		 margin-top: 25vh;
+		 font-size: 80px;
+		 }
+		}
+		@media only screen and (min-width: 90.063em) {
+		 .logo {
+		 margin-top: 20vh;
+		 font-size: 80px;
+		 }
+		}
+		@media only screen and (min-width: 120.063em) {
+		 .logo {
+		 margin-top: 15vh;
+		 font-size: 80px;
+		 }
+		}
+		@-webkit-keyframes animate-logo {
+		 0% {
+		 background-position: 0 3200px;
+		 }
+		 100% {
+		 background-position: 3200px 0;
+		 }
+		}
+
+		.menu {
+			display: block;
+		}
+		.schoolLoc1 {
+			height: 200px;
+			width: 200px;
+			background-image: url(1.jpg);
+			background-size: 100% 100%;
+			position: absolute;
+			top: 40%;
+			left: 10%;
+		
+		}
+		.fizraLoc2 {
+			height: 200px;
+			width: 200px;
+			background-image: url(2.jpg);
+			background-size: 100% 100%;
+			position: absolute;
+			top: 15%;
+			left: 57%;
+		
+		}
+
+		.arenaLoc3 {
+			height: 200px;
+			width: 200px;
+			background-image: url(3.jpg);
+			background-size: 100% 100%;
+			position: absolute;
+			top: 75%;
+			left: 70%;
+		
+		}
+
+		.player {
+			height: 180px;
+			width: 180px;
+			background-image: url(player1.png);
+			background-size: 100% 100%;
+			position: absolute;
+			top: 50%;
+			left: 40%;
+			transition: 500ms;
+		}
+		.map {
+			display: none;
+		}
+
+		/*Локация 1*/
+
+		.dialog1 {
+			height: 300px;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.8);
+			display: none;
+		
+		}
+		.location1 {
+			display: none;
+		}
+		.location2 {
+			display: none;
+		}
+		.location3 {
+			display: none;
+		}
+		.location4 {
+			display: none;
+		}
+
+		.btnCustom {
+			width: 100%;
+			margin-top: 10px;
+			height: 50px;
+			border-radius: 40px;
+			border: 2.5px solid rgb(124, 42, 136);
+			background: none;
+			color: white;
+			font-family: gang;
+			box-decoration-break: none;
+		}
+		.quest1 {
+			display: block;
+		}
+		.quest2 {
+			display: none;
+		}
+		.quest3 {
+			display: none;
+		}
+		.quest4 {
+			display: none;
+		}
+
+		/*Диалог*/
+
+		.dialogAvatar {
+			width: 10%;
+		}
+		.dialogName {
+			font-size: 250%;
+			font-family: gang;
+		}
+		.dialogText {
+			font-size: 150%;
+			font-family: gang;
+		}
+		.mark{
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			background: none;
+		}
+		.difficult {	
+			width: 200px;
+			height: 50px;
+			background: none;
+			border-radius: 40px;
+			border: 2.5px solid rgb(124, 42, 136);
+			color: white;
+			font-family: gang;
+			position: absolute;
+			top: 70%;
+		}
+		
+	</style>
+	<script src="https://kit.fontawesome.com/f041db2a89.js" crossorigin="anonymous"></script>
+</head>
+<body class="blurBg" style="background-size: 100%;background-image: url(main.gif);background-attachment: fixed;">
+	<div class="menu" style="">
+				<div class="clock is-off"><span class="time" data-time=""></span></div>
+			
+		<button class="btnPlay gang text-center py-3" style="">
+			<p class="dva">Начать</p>
+		</button>
+
+		<button class="btnGallery gang text-center py-3" style="position: absolute;width: 200px;height: 80px;border-radius: 40px;top: 45%;left: 40%;border: 2.5px solid rgb(124, 42, 136);background: none;display: none;">
+			<p class="dva">Галерея</p>
+		</button>
+
+		<button class="difficult easy" style="left: 30%">Легкий (1 к 5)</button>
+		<button class="difficult normal" style="left: 45%">Средний (1 к 3)</button>
+		<button class="difficult hard" style="left: 60%">Сложный (1 к 2)</button>
+		<img src="gg.png" class="px-3" style="top: 27%;left: 52%;position: absolute;border-left:2.5px solid rgb(124, 42, 136);">
+	</div>
+
+
+	<div class="map">
+		<div class="schoolLoc1"></div>
+		<div class="fizraLoc2"></div>
+		<div class="arenaLoc3"></div>
+		<div class="player"></div>
+	</div>
+
+	<!--Локация1-->
+
+	<div class="location1">
+		<div class="mx-auto py-5 quest1" style="width: 500px;height: 500px;border-radius: 40px;background-color: rgba(0,0,0,0.5);">
+			<h1 class="gang text-center py-5">Откуда бросают 3-ех очковый бросок?</h1>
+			<button class="btnfalse btnCustom">С штрафной линии</button>
+			<button class="btnfalse1 btnCustom">С под кольца</button>
+			<button class="btncorrect btnCustom">С трех очковой линии?</button>
+		</div>
+
+		<div class="mx-auto py-5 quest2" style="width: 500px;height: 500px;border-radius: 40px;background-color: rgba(0,0,0,0.5);">
+			<h1 class="gang text-center py-5">Что такое пробежка?</h1>
+			<button class="btnfalse2 btnCustom">Трюк</button>
+			<button class="btnfalse12 btnCustom">Бросок</button>
+			<button class="btncorrect2 btnCustom">Нарушение правил</button>
+		</div>
+
+		<div class="mx-auto py-5 quest3" style="width: 500px;height: 500px;border-radius: 40px;background-color: rgba(0,0,0,0.5);">
+			<h1 class="gang text-center py-5">По сколько человек от каждой команды может одновременно находиться на игровой площадке?</h1>
+			<button class="btnfalse3 btnCustom">по 6</button>
+			<button class="btnfalse13 btnCustom">по 7</button>
+			<button class="btncorrect3 btnCustom">по 5</button>
+		</div>
+
+		<div class="mx-auto py-5 quest4" style="width: 500px;height: 500px;border-radius: 40px;background-color: rgba(0,0,0,0.5);">
+			<h1 class="gang text-center py-5">Молодец, ты получил билет!</h1>
+			<img src="ticket.png" class="w-100">
+		</div>
+	</div>
+
+	<div class="location2">
+			<div style="height: 25px;background-color: rgba(0,0,0,0.5);width: 0%;border-radius: 3px;color:rgb(255, 255, 255);font-family: gang; " class="vremya text-center"><h5 style="">время</h5></div>
+			<h1 class="gang text-center" style="color: white;">Мячов набито:<span class="scoreScore">0</span></h1>
+	</div>
+
+	<div class="location3 text-center">
+		<div style="display: flex;">
+			<div style="width: 50%;height: 800px" class="text-center py-5">
+				<h1 class="gang" style="font-size: 350%">Ты: <span class="yourScore">0</span></h1>
+				<img src="" class="w-75 yourGif py-4">
+			</div>
+			<div style="width: 50%;height: 800px" class="text-center py-5">
+				<h1 class="gang" style="font-size: 350%">Враг: <span class="enemyScore">0</span></h1>
+				<img src="" class="w-75 enemyGif py-4">
+			</div>
+		</div>
+		<button class="btn btn-primary gole" style="width: 300px;height: 90px;border-radius: 50px;font-family: gang;font-size: 200%;background: none;border:2.5px solid rgb(124, 42, 136);position: absolute;top: 45%;left: 42%">Кинуть мяч</button>
+		
+	</div>
+
+	<div class="location4 text-center">
+		<h1 class="gang py-5" style="font-size: 300%">Персонажи?</h1>
+		<div class=" d-flex">
+			<div style="background: ;width: 300px;height: 270px;margin-left: 60px">
+				<img src="player1.png" style="width: 71%">
+				<h1 class="gang">Куроко?</h1>
+			</div>
+
+			<div style="background: ;width: 300px;height: 270px;">
+				<img src="kagamii.png" style="width: 43.5%">
+				<h1 class="gang">Кагами</h1>
+			</div>
+
+			<div style="background: ;width: 300px;height: 270px;">
+				<img src="enemy.png" style="width: 43.5%">
+				<h1 class="gang">Акаши</h1>
+			</div>
+
+			<div style="background: ;width: 300px;height: 270px;">
+				<img src="gg.png" style="width: 43.5%">
+				<h1 class="gang">Куроко и Тецуя 2</h1>
+			</div>
+
+			<div style="background: ;width: 300px;height: 270px;">
+				<img src="teacher.png" style="width: 43.5%">
+				<h1 class="gang">Айда Рико</h1>
+			</div>
+
+			<div style="background: ;width: 300px;height: 270px;">
+				<img src="svyyyx.png" style="width: 43.5%">
+				<h1 class="gang">??????</h1>
+			</div>
+		</div>
+
+		<h1 class="gang py-5" style="font-size: 300%">Локации</h1>
+
+		<div class="d-flex">
+			<div style="background: ;width: 560px;height: 300px;margin-left: 60px">
+				<img src="map.jpg" style="width: 72%">
+				<h1 class="gang">Школа</h1>
+			</div>
+
+			<div style="background: ;width: 560px;height: 300px;margin-left: 60px">
+				<img src="loc2.jpg" style="width: 80%">
+				<h1 class="gang">Физкультурный зал</h1>
+			</div>
+
+			<div style="background: ;width: 560px;height: 300px;margin-left: 60px">
+				<img src="loc1.jpg" style="width: 80%">
+				<h1 class="gang">Класс</h1>
+			</div>
+
+		</div>
+
+		<div class="d-flex mt-5">
+			<div style="background: ;width: 560px;height: 300px;margin-left: 60px">
+				<img src="loc3.jpg" style="width: 80%">
+				<h1 class="gang">Стадион</h1>
+			</div>
+
+			<div style="background: ;width: 560px;height: 300px;margin-left: 60px">
+				<img src="main.gif" style="width: 80%">
+				<h1 class="gang">Главное меню</h1>
+			</div>
+
+			<div style="background: ;width: 560px;height: 300px;margin-left: 60px">
+				<img src="star.png" style="width: 80%">
+				<h1 class="gang">??????</h1>
+			</div>
+
+		</div>
+		<h1 class="gang py-5" style="font-size: 300%">Предметы</h1>
+
+		<div class="d-flex mt-5">
+			<div style="background: ;width: 860px;height: 400px;margin-left: 60px" class="mx-auto">
+				<img src="ticket.png" style="width: 80%">
+				<h1 class="gang">Билет</h1>
+			</div>
+		</div>
+
+		<h1 class="gang py-5" style="font-size: 300%">Прочее</h1>
+
+		<div class="d-flex mt-5">
+			<div style="background: ;width: 560px;height: 600px;margin-left: 60px" class="mx-auto">
+				<img src="plus1.gif" style="width: 100%">
+				<h1 class="gang">&^@!($)(</h1>
+			</div>
+
+			<div style="background: ;width: 560px;height: 600px;margin-left: 60px" class="mx-auto">
+				<img src="null.gif" style="width: 100%">
+				<h1 class="gang">$#?*&@!</h1>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<div class="dialog1">
+			<img src="teacher.png" class="dialogAvatar mx-5">
+			<div style="height: 260px;width: 1.5px;background: rgba(255,255,255,1);border-radius: 10px;" class="mt-4"></div>
+			<div>
+				<h1 class="dialogName pl-5" style="color: #af7951">Айда</h1>
+				<p class="dialogText pl-5">Куроко, мы тут хотим участвовать в школьном чемпионате, можешь ли ты участвовать?</p>
+			</div>
+	</div>
+
+
+
+
+
+		<img src="2.gif" style="position: absolute;left: 45%;top: 88%;opacity: 0.8;background-color: rgba(0,0,0,0.5);border-radius: 10px;display: none;" class="gifka" width="10%">
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  
+<script src="main.js"></script>
+</body>
+</html>
